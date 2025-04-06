@@ -1,27 +1,30 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { shallowEquals } from "../equalities";
-import { ComponentType } from "react";
+import { ComponentType, createElement, ReactNode } from "react";
+import { useRef } from "../hooks";
 
+/** * memo HOC는 컴포넌트의 props를 얕은 비교하여 불필요한 리렌더링을 방지합니다. 
+ * @param Component 
+ * @param [_equals=shallowEquals] 
+*/
 export function memo<P extends object>(
   Component: ComponentType<P>,
   _equals = shallowEquals,
 ) {
-  // shallowEquals(ref);
-  return Component;
-}
+  return function MemoizedComponent(props: P): ReactNode {
+    const prevPropsRef = useRef<P | null>(null);     // 이전 props 저장
+    const renderRef = useRef<ReactNode | null>(null); // 이전 렌더 결과 저장
 
-/**
- * 
- * // memo HOC는 컴포넌트의 props를 얕은 비교하여 불필요한 리렌더링을 방지합니다.
-export function memo<P extends object>(
-  Component: ComponentType<P>,
-  equals = shallowEquals
-) {
-  // 1. 이전 props를 저장할 ref 생성
+    const shouldRender =
+      !prevPropsRef.current || !_equals(prevPropsRef.current, props);
 
-  // 2. 메모이제이션된 컴포넌트 생성
+    if (shouldRender) {
+      prevPropsRef.current = props;
+      renderRef.current = createElement(Component, props); // JSX 대신 createElement 사용
+    }
 
-  // 3. equals 함수를 사용하여 props 비교
+    return renderRef.current;
+  }
 
-  // 4. props가 변경된 경우에만 새로운 렌더링 수행
- */
+
+};
