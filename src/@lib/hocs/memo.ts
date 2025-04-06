@@ -6,6 +6,7 @@ export function memo<P extends object>(
   Component: ComponentType<P>,
   _equals = shallowEquals,
 ) {
+  // shallowEquals(ref);
   return Component;
 }
 
