@@ -1,4 +1,3 @@
-
 import { memo } from "../@lib";
 import { useNotification } from "../contexts";
 import { renderLog } from "../utils";
@@ -33,5 +32,4 @@ export const NotificationSystem: React.FC = memo(() => {
       ))}
     </div>
   );
-}
-);
+});

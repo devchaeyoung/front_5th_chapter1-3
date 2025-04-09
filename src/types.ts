@@ -18,7 +18,7 @@ export interface Notification {
   type: "info" | "success" | "warning" | "error";
 }
 
-export type Theme = 'light' | 'dark';
+export type Theme = "light" | "dark";
 
 // Context 타입 정의
 export interface ContextType {
@@ -34,4 +34,7 @@ export interface ContextType {
 
 export type UserContextType = Pick<ContextType, "user" | "login" | "logout">;
 export type ThemeContextType = Pick<ContextType, "theme" | "toggleTheme">;
-export type NotificationContextType = Pick<ContextType, "notifications" | "addNotification" | "removeNotification">;
+export type NotificationContextType = Pick<
+  ContextType,
+  "notifications" | "addNotification" | "removeNotification"
+>;

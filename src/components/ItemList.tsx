@@ -4,13 +4,16 @@ import { renderLog } from "../utils";
 import { useTheme } from "../contexts";
 
 interface ItemListProps {
-    items: Item[];
-    onAddItemsClick: () => void;
+  items: Item[];
+  onAddItemsClick: () => void;
 }
 
-export const ItemList: React.FC<ItemListProps> = ({ items, onAddItemsClick }) => {
+export const ItemList: React.FC<ItemListProps> = ({
+  items,
+  onAddItemsClick,
+}) => {
   renderLog("ItemList rendered");
-  const [ filter, setFilter ] = useState("");
+  const [filter, setFilter] = useState("");
   const { theme } = useTheme();
 
   const filteredItems = items.filter(
@@ -62,4 +65,3 @@ export const ItemList: React.FC<ItemListProps> = ({ items, onAddItemsClick }) =>
     </div>
   );
 };
-

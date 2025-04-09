@@ -1,4 +1,4 @@
-import { createContext, useContext, useState  } from "react";
+import { createContext, useContext, useState } from "react";
 import { useCallback } from "../@lib";
 import type { Theme, ThemeContextType } from "../types";
 
@@ -10,7 +10,9 @@ export const useTheme = () => {
   return ctx;
 };
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [theme, setTheme] = useState<Theme>("light");
 
   const toggleTheme = useCallback(() => {

@@ -12,18 +12,20 @@ export const useUser = () => {
 };
 
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
-  children
+  children,
 }) => {
-  const [ userState, setUser ] = useState<User | null>(null);
+  const [userState, setUser] = useState<User | null>(null);
   const { addNotification } = useNotification();
 
-  const login:(message: string) => void = useCallback((email: string) => {
-    setUser({ id: 1, name: "홍길동", email });
-    addNotification("성공적으로 로그인되었습니다", "success");
-  }, [setUser, addNotification]);
+  const login: (message: string) => void = useCallback(
+    (email: string) => {
+      setUser({ id: 1, name: "홍길동", email });
+      addNotification("성공적으로 로그인되었습니다", "success");
+    },
+    [setUser, addNotification],
+  );
 
-
-  const logout:() => void = useCallback(() => {
+  const logout: () => void = useCallback(() => {
     setUser(null);
     addNotification("로그아웃되었습니다", "info");
   }, [setUser, addNotification]);

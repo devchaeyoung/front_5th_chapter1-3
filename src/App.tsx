@@ -2,7 +2,12 @@ import { useState } from "react";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { UserProvider } from "./contexts/UserContext";
 import { NotificationProvider } from "./contexts/NotificationContext";
-import { Header, ItemList, ComplexForm, NotificationSystem } from "./components";
+import {
+  Header,
+  ItemList,
+  ComplexForm,
+  NotificationSystem,
+} from "./components";
 import { generateItems } from "./utils";
 
 const App = () => {
@@ -30,7 +35,7 @@ const App = () => {
             </div>
           </div>
         </UserProvider>
-       </ThemeProvider>
+      </ThemeProvider>
       <NotificationSystem />
     </NotificationProvider>
   );
