@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Item } from "../types";
 import { renderLog } from "../utils";
 import { useTheme } from "../contexts";
+import { memo, useMemo } from "../@lib";
 
 interface ItemListProps {
   items: Item[];
   onAddItemsClick: () => void;
 }
 
-export const ItemList: React.FC<ItemListProps> = ({
+export const ItemList: React.FC<ItemListProps> = memo(({
   items,
   onAddItemsClick,
 }) => {
@@ -16,15 +17,15 @@ export const ItemList: React.FC<ItemListProps> = ({
   const [filter, setFilter] = useState("");
   const { theme } = useTheme();
 
-  const filteredItems = items.filter(
+  const filteredItems = useMemo(() => items.filter(
     (item) =>
       item.name.toLowerCase().includes(filter.toLowerCase()) ||
       item.category.toLowerCase().includes(filter.toLowerCase()),
-  );
+  ),[items, filter])
 
-  const totalPrice = filteredItems.reduce((sum, item) => sum + item.price, 0);
+  const totalPrice = useMemo(() => filteredItems.reduce((sum, item) => sum + item.price, 0),[ filteredItems ]);
 
-  const averagePrice = Math.round(totalPrice / filteredItems.length) || 0;
+  const averagePrice = useMemo(() => Math.round(totalPrice / filteredItems.length) || 0, [ totalPrice, filteredItems ]);
 
   return (
     <div className="mt-8">
@@ -64,4 +65,4 @@ export const ItemList: React.FC<ItemListProps> = ({
       </ul>
     </div>
   );
-};
+});

@@ -18,8 +18,8 @@ const App = () => {
   };
 
   return (
-    <NotificationProvider>
-      <ThemeProvider>
+    <ThemeProvider>
+      <NotificationProvider>
         <UserProvider>
           <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
             <Header />
@@ -34,10 +34,10 @@ const App = () => {
               </div>
             </div>
           </div>
+         <NotificationSystem />     
         </UserProvider>
-      </ThemeProvider>
-      <NotificationSystem />
-    </NotificationProvider>
+     </NotificationProvider>
+    </ThemeProvider>
   );
 };
 
