@@ -34,9 +34,9 @@ const App = () => {
               </div>
             </div>
           </div>
-         <NotificationSystem />     
+          <NotificationSystem />
         </UserProvider>
-     </NotificationProvider>
+      </NotificationProvider>
     </ThemeProvider>
   );
 };

@@ -19,7 +19,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     setTheme((prev: string) => (prev === "light" ? "dark" : "light"));
   }, []);
 
-  const contextValue = useMemo(() => ({ theme: theme, toggleTheme }),[ theme, toggleTheme ])
+  const contextValue = useMemo(
+    () => ({ theme: theme, toggleTheme }),
+    [theme, toggleTheme],
+  );
 
   return (
     <ThemeContext.Provider value={contextValue}>
