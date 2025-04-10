@@ -1,13 +1,12 @@
 import { NotificationProvider, ThemeProvider, UserProvider } from "./contexts";
 import Home from "./pages/Home";
 
-
 const App = () => {
   return (
     <ThemeProvider>
       <NotificationProvider>
         <UserProvider>
-          <Home/>
+          <Home />
         </UserProvider>
       </NotificationProvider>
     </ThemeProvider>

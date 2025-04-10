@@ -34,7 +34,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
       addNotification,
       removeNotification,
     }),
-    [notifications, addNotification, removeNotification],
+    [notifications],
   );
 
   return (
