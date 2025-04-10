@@ -21,7 +21,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
       const newNotification = { id: Date.now(), message, type };
       setNotifications((prev: Notification[]) => [...prev, newNotification]);
     },
-    [],
+    []
   );
 
   const removeNotification = useCallback((id: number) => {
@@ -34,7 +34,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
       addNotification,
       removeNotification,
     }),
-    [notifications],
+    [notifications]
   );
 
   return (

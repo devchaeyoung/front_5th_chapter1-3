@@ -5,7 +5,7 @@ import { shallowEquals } from "../equalities";
 export function useMemo<T>(
   factory: () => T,
   _deps: DependencyList,
-  _equals = shallowEquals,
+  _equals = shallowEquals
 ): T {
   // ref 초기화: 이전 deps와 값 저장소
   const ref = useRef<{

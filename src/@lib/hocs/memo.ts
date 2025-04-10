@@ -8,7 +8,7 @@ import { useRef } from "../hooks";
  */
 export function memo<P extends object>(
   Component: ComponentType<P>,
-  _equals = shallowEquals,
+  _equals = shallowEquals
 ) {
   return function MemoizedComponent(props: P): ReactNode {
     const prevPropsRef = useRef<P | null>(null); // 이전 props 저장

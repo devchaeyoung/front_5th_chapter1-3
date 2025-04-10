@@ -18,7 +18,7 @@ export const ComplexForm = memo(() => {
       e.preventDefault();
       addNotification("폼이 성공적으로 제출되었습니다", "success");
     },
-    [addNotification],
+    [addNotification]
   );
 
   const handleInputChange = useCallback(
@@ -29,7 +29,7 @@ export const ComplexForm = memo(() => {
         [name]: name === "age" ? parseInt(value) || 0 : value,
       }));
     },
-    [setFormData],
+    [setFormData]
   );
 
   const handlePreferenceChange = useCallback(
@@ -41,7 +41,7 @@ export const ComplexForm = memo(() => {
           : [...prev.preferences, pref],
       }));
     },
-    [setFormData],
+    [setFormData]
   );
 
   return (

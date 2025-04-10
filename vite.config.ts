@@ -29,6 +29,6 @@ export default ({ mode }: { mode: string }) => {
           reporter: ["lcov", "json", "json-summary"],
         },
       },
-    }),
+    })
   );
 };

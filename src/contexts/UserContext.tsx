@@ -29,7 +29,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const contextValue = useMemo(
     () => ({ user: user, login, logout }),
-    [user, login, logout],
+    [user, login, logout]
   );
 
   return (
